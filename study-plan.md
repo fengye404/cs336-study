@@ -1,297 +1,275 @@
-# Study Plan
+# CS336 Fast Track Study Plan
 
-This plan adapts Stanford CS336: Language Modeling from Scratch for a working schedule:
+This is the faster plan.
+
+It adapts Stanford CS336: Language Modeling from Scratch to a working schedule:
 
 - Work starts at 10:00.
 - Work ends around 22:00.
-- Weekdays are for light input, review, and small code changes.
-- Weekends are for deep implementation.
+- Weekdays are short but consistent.
+- Weekends carry the real implementation load.
 
-The official CS336 pace is roughly a 10-week Stanford course with heavy assignments. For this repo, the plan stretches it to 18 weeks so it can survive real workdays.
+Target duration: 10 weeks.
+
+Expected load: 12-15 hours/week.
+
+This is close to the official CS336 course tempo, but with a working-person schedule. The tradeoff is simple: fewer detours, less perfectionism, more code.
 
 ## Weekly Rhythm
 
-Use this as the default schedule.
-
-| Time | Task | Energy |
+| Time | Task | Target |
 | --- | --- | --- |
-| Monday 08:30-09:15 | Preview the week's lecture/theme | Light |
-| Wednesday 08:30-09:15 | Read notes or watch part of a lecture | Light |
-| Friday 22:30-23:00 | Write questions and plan weekend work | Very light |
-| Saturday 10:00-12:00 | Main coding block | Deep |
-| Saturday 14:30-17:30 | Assignment/lab implementation | Deep |
-| Sunday 10:00-12:00 | Debugging and cleanup | Medium |
-| Sunday 20:30-21:15 | Weekly checkpoint | Light |
+| Monday 08:15-09:30 | Watch/read new CS336 material | Concept intake |
+| Tuesday 08:30-09:15 | Python/PyTorch drill tied to the topic | Skill warmup |
+| Wednesday 08:15-09:30 | Continue lecture/notes | Concept intake |
+| Thursday 08:30-09:15 | Small implementation step | Code momentum |
+| Friday 22:30-23:00 | List blockers and plan weekend | Planning |
+| Saturday 09:30-12:30 | Main assignment/lab block | Deep code |
+| Saturday 14:30-17:30 | Continue implementation | Deep code |
+| Sunday 10:00-13:00 | Debug, test, clean up | Finish |
+| Sunday 20:30-21:15 | Write checkpoint | Retention |
 
-Expected load: 7-9 hours/week.
+Minimum viable week:
 
-Minimum viable week when work is brutal:
+- Watch/read 90 minutes total.
+- Write one note.
+- Make one commit.
+- Record blockers in `checkpoints/`.
 
-- Watch or read 45 minutes.
-- Write one note in `notes/`.
-- Make one tiny code change or run one experiment.
-- Add a checkpoint with what blocked progress.
+## Speed Rules
 
-## Rules
+- Do not wait until Python feels comfortable. Learn Python through the assignment.
+- Do not rewrite official code for beauty.
+- Do not read three tutorials for one topic. Use CS336 first, then one backup resource only when blocked.
+- Every week ends with a concrete artifact: code, notes, experiment log, or checkpoint.
+- If a concept is unclear but not blocking code, keep moving and mark it in `notes/confusions.md`.
 
-- Do not study after 23:30 unless it is genuinely fun that day.
-- Do not start a new concept on Sunday night.
-- For each topic, produce one artifact: note, lab, assignment commit, or checkpoint.
-- Prefer understanding tensor shapes over copying working code.
-- When stuck for more than 45 minutes, write the exact confusion in `notes/` before searching.
+## 10-Week Plan
 
-## Phase 0: Setup And Python/PyTorch Warmup
+### Week 1: Bootstrapping Python, PyTorch, And CS336
 
-Duration: 2 weeks
+Goal: get the environment working and build enough PyTorch muscle memory to start assignments.
 
-Goal: be able to read and modify CS336 assignment code.
+Tasks:
 
-### Week 1: Python For Training Code
+- Set up `.venv` and install dependencies.
+- Skim the CS336 course site and current assignment structure.
+- Learn Python essentials: functions, classes, list/dict comprehensions, iterators, file I/O.
+- Learn PyTorch essentials: tensors, autograd, `nn.Module`, optimizers.
+- Lab: train a tiny MLP on synthetic data.
 
-- Set up `.venv`.
-- Review Python syntax, list/dict comprehensions, classes, iterators, and file I/O.
-- Learn NumPy arrays, broadcasting, matrix multiplication, and indexing.
-- Lab: implement a tiny linear regression with NumPy.
+Deliverables:
 
-Done when:
-
-- I can read Python code without translating everything back to Java.
-- I can explain array shapes while doing matrix multiplication.
-
-### Week 2: PyTorch Basics
-
-- Learn tensors, autograd, `nn.Module`, optimizers, and dataloaders.
-- Train a tiny MLP on synthetic data.
-- Lab: print tensor shapes at every step of a forward/backward pass.
+- `labs/week-01-pytorch-basics/`
+- `notes/week-01-setup.md`
+- `checkpoints/week-01.md`
 
 Done when:
 
-- I can train a tiny model and explain what `loss.backward()` does.
+- I can run a PyTorch training loop and explain what forward, loss, backward, and optimizer step do.
 
-## Phase 1: Tokenization And Data
+### Week 2: Tokenization And BPE
 
-Duration: 2 weeks
+Goal: understand how text becomes model input.
 
-Maps to CS336 topics around data processing and tokenization.
-
-### Week 3: Unicode, Bytes, And BPE
+Tasks:
 
 - Study Unicode, UTF-8, bytes, vocabulary, merges, and special tokens.
-- Read CS336 tokenization material.
-- Lab: compare token counts for real agent prompts.
+- Start the CS336 tokenizer assignment or equivalent local lab.
+- Compare token counts for real agent prompts.
+- Implement or trace a small BPE tokenizer.
+
+Deliverables:
+
+- `labs/week-02-tokenizer/`
+- `notes/week-02-tokenization.md`
+- Token-count examples from agent prompts.
 
 Done when:
 
-- I can explain why the same text can have different token counts under different tokenizers.
+- I can explain training a tokenizer versus using a trained tokenizer for inference.
 
-### Week 4: Tokenizer Implementation
+### Week 3: Embeddings, Logits, And The LM Objective
 
-- Trace or implement a small BPE tokenizer.
-- Read the official assignment structure before coding.
-- Lab: build a small tokenizer on a toy corpus.
+Goal: understand the simplest next-token prediction model.
 
-Done when:
-
-- I can explain training-time tokenizer construction and inference-time encoding.
-
-## Phase 2: Transformer Core
-
-Duration: 4 weeks
-
-Maps to CS336's Transformer and language-modeling core.
-
-### Week 5: Embeddings And Language Modeling Objective
+Tasks:
 
 - Study token embeddings, positional information, logits, softmax, and cross entropy.
-- Lab: build a minimal next-token prediction loop.
+- Build a minimal next-token predictor.
+- Print tensor shapes through the full path.
+- Read the relevant CS336 material before coding deeper.
+
+Deliverables:
+
+- `labs/week-03-lm-objective/`
+- `notes/week-03-language-modeling.md`
 
 Done when:
 
-- I can explain one training example from input token ids to loss.
+- I can explain input token ids to logits to loss for one batch.
 
-### Week 6: Attention
+### Week 4: Attention
 
-- Study scaled dot-product attention, masks, and multi-head attention.
-- Lab: implement attention with explicit tensor shape comments.
+Goal: understand causal self-attention well enough to implement it.
+
+Tasks:
+
+- Study `Q`, `K`, `V`, scaled dot-product attention, causal masks, and multi-head attention.
+- Implement attention from scratch.
+- Add shape assertions or comments.
+- Test masking behavior with a tiny example.
+
+Deliverables:
+
+- `labs/week-04-attention/`
+- `notes/week-04-attention.md`
 
 Done when:
 
-- I can explain `Q`, `K`, `V`, attention scores, causal mask, and output shape.
+- I can trace attention shapes without guessing.
 
-### Week 7: Transformer Block
+### Week 5: Transformer Block To Tiny GPT
 
-- Study residual connections, layer norm/RMSNorm, MLP, activations, and dropout.
-- Lab: implement one Transformer block.
+Goal: assemble the model core.
 
-Done when:
+Tasks:
 
-- I can trace shapes through a full block without guessing.
+- Study residual connections, normalization, MLP, activations, and dropout.
+- Implement one Transformer block.
+- Stack blocks into a tiny GPT-style model.
+- Generate samples, even if they are bad.
 
-### Week 8: Tiny GPT
+Deliverables:
 
-- Combine tokenizer, embeddings, Transformer blocks, and LM head.
-- Train a tiny character-level or token-level model.
-- Add loss curve and generated samples.
+- `labs/week-05-tiny-gpt/`
+- `notes/week-05-transformer-block.md`
 
 Done when:
 
 - I can explain a full forward pass from text to next-token logits.
 
-## Phase 3: Training Mechanics
+### Week 6: Training Loop And Debugging
 
-Duration: 3 weeks
+Goal: make training runs reliable enough to learn from.
 
-Maps to CS336 topics around optimization, training loops, and experiments.
+Tasks:
 
-### Week 9: Training Loop
+- Study batching, gradient accumulation, clipping, schedulers, and checkpointing.
+- Add validation loss.
+- Add checkpoint save/load.
+- Run at least three small experiments changing one variable at a time.
 
-- Study batching, gradient accumulation, clipping, scheduler, and checkpointing.
-- Lab: add checkpoint save/load to the tiny model.
+Deliverables:
 
-Done when:
-
-- I can stop and resume a toy training run.
-
-### Week 10: Optimization And Debugging
-
-- Study AdamW, learning-rate schedules, initialization, and loss curves.
-- Lab: run 3 small experiments changing one variable at a time.
+- `labs/week-06-training-loop/`
+- `checkpoints/week-06-experiment-log.md`
 
 Done when:
 
-- I can diagnose obvious issues like no learning, exploding loss, or bad batch shapes.
+- I can stop/resume training and compare two runs using loss curves.
 
-### Week 11: Data And Experiment Hygiene
+### Week 7: Scaling Basics And GPU Memory
 
-- Study train/val split, overfitting, reproducibility, seeds, and logging.
-- Lab: add validation loss and a simple experiment log.
+Goal: understand why LLM training becomes a systems problem.
 
-Done when:
-
-- I can compare two runs without relying on vibes.
-
-## Phase 4: Scaling And Systems
-
-Duration: 3 weeks
-
-Maps to CS336's systems-heavy parts.
-
-### Week 12: GPU Memory And Throughput
+Tasks:
 
 - Study parameters, activations, optimizer states, batch size, and sequence length.
-- Lab: estimate memory usage for several toy model sizes.
+- Estimate memory for toy model sizes.
+- Study fp32, fp16, bf16, and numerical stability.
+- If hardware allows, compare mixed precision versus fp32.
+
+Deliverables:
+
+- `notes/week-07-scaling-memory.md`
+- `labs/week-07-memory-estimates/`
 
 Done when:
 
-- I can do a rough memory estimate before running code.
+- I can estimate whether a model/run is likely to fit before launching it.
 
-### Week 13: Mixed Precision And Efficient Attention
+### Week 8: Efficient Training And Distributed Concepts
 
-- Study fp32, fp16, bf16, FlashAttention, and numerical stability.
-- Lab: compare a small run with and without mixed precision if hardware allows.
+Goal: learn the vocabulary of modern training systems.
 
-Done when:
+Tasks:
 
-- I can explain why training speed and stability trade off.
-
-### Week 14: Distributed Training Concepts
-
+- Study FlashAttention at the concept level.
 - Study data parallelism, tensor parallelism, pipeline parallelism, and FSDP.
-- No need to implement full distributed training unless it becomes useful.
+- Read one CS336 systems lecture carefully.
+- Write a map of which technique solves which bottleneck.
+
+Deliverables:
+
+- `notes/week-08-training-systems.md`
 
 Done when:
 
-- I can read a distributed-training article without losing the plot.
+- I can read a distributed-training discussion without getting lost in names.
 
-## Phase 5: Inference And Evaluation
+### Week 9: Inference, Sampling, And Evaluation
 
-Duration: 2 weeks
+Goal: connect model internals to agent runtime behavior.
 
-Maps to CS336 inference, generation, and evaluation topics.
-
-### Week 15: Decoding And KV Cache
+Tasks:
 
 - Study greedy decoding, temperature, top-k, top-p, prefill, decode, and KV cache.
-- Lab: compare generated outputs under different sampling settings.
-
-Done when:
-
-- I can connect inference settings to agent behavior.
-
-### Week 16: Evaluation
-
+- Compare generated outputs under sampling settings.
 - Study perplexity, benchmark design, contamination, and qualitative evals.
-- Lab: create a tiny eval set for agent-style prompts.
+- Create a tiny eval set for agent-style prompts.
+
+Deliverables:
+
+- `labs/week-09-inference-eval/`
+- `notes/week-09-kv-cache-eval.md`
 
 Done when:
 
-- I can explain why "the model feels better" is not enough.
+- I can explain latency and quality tradeoffs in an agent pipeline.
 
-## Phase 6: Alignment Bridge
+### Week 10: Alignment Bridge: SFT, Preferences, RLHF, DPO
 
-Duration: 2 weeks
+Goal: connect CS336 back to agent development and RL.
 
-This is where CS336 connects back to agent development, RLHF, and preference learning.
+Tasks:
 
-### Week 17: SFT And Preference Data
+- Study SFT, instruction data, preference pairs, reward models, PPO, and DPO.
+- Map agent traces to possible SFT data and preference data.
+- Write a final summary: what I now understand about LLM training and what to learn next.
 
-- Study supervised fine-tuning, instruction data, preference pairs, and reward models.
-- Write a note mapping agent traces to possible training data.
+Deliverables:
 
-Done when:
-
-- I can identify which parts of an agent workflow could become SFT data or preference data.
-
-### Week 18: RLHF, DPO, And Next Plan
-
-- Study PPO at a high level, DPO, and why modern alignment is not just "RL on text."
-- Write a final checkpoint: what I now understand, what to learn next.
+- `notes/week-10-alignment-bridge.md`
+- `checkpoints/week-10-final-review.md`
 
 Done when:
 
-- I can explain where RL fundamentals matter for LLM alignment and where preference optimization is enough.
+- I can explain where RLHF depends on RL fundamentals and where preference optimization is enough.
 
-## Weekly Checkpoint Template
+## What To Skip On The Fast Track
 
-Create one file under `checkpoints/`, for example `checkpoints/week-01.md`.
+Skip these unless they are directly blocking the current assignment:
 
-```markdown
-# Week 01
+- Deep math proofs.
+- Building a polished library structure.
+- Full distributed training implementation.
+- Reading every optional paper.
+- Optimizing tiny labs for performance.
+- Perfect notes.
 
-## Time Spent
+## First Two Weeks Checklist
 
-- Weekday:
-- Weekend:
+Week 1:
 
-## Finished
+- [ ] Environment works.
+- [ ] One PyTorch training loop runs.
+- [ ] One checkpoint file exists.
 
-- ...
+Week 2:
 
-## Can Explain
+- [ ] Tokenization notes exist.
+- [ ] A small tokenizer lab exists.
+- [ ] I can explain BPE without looking at notes.
 
-- ...
-
-## Can Implement
-
-- ...
-
-## Still Confusing
-
-- ...
-
-## Next Week
-
-- ...
-```
-
-## First Month Success Criteria
-
-After four weeks, I should have:
-
-- A working Python environment.
-- A tiny NumPy or PyTorch training script.
-- Notes on tokenization.
-- A small tokenizer lab or assignment attempt.
-- Four weekly checkpoints.
-
-That is enough momentum. The goal is not speed; the goal is not silently quitting.
+If these are done, the plan is moving fast enough.
