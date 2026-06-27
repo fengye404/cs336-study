@@ -1,0 +1,9 @@
+numpy
+torch
+matplotlib
+tqdm
+einops
+tiktoken
+pytest
+ipykernel
+
