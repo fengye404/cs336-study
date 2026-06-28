@@ -1,13 +1,19 @@
 # Assignments
 
-Keep official CS336 assignment work here.
+Official CS336 assignment repos are tracked here as Git submodules.
 
-Recommended pattern:
+## Current Assignments
+
+- `assignment1-basics`: tokenization, Transformer basics, optimizer, training loop.
+- `assignment2-systems`: profiling, kernels, FlashAttention, distributed/system work.
+- `assignment3-scaling`: scaling laws and scaling experiments.
+- `assignment4-data`: data processing, filtering, deduplication, curation.
+- `assignment5-alignment`: post-training, alignment, reasoning RL.
+
+After cloning this study repo on a new machine, initialize the official assignment repos with:
 
 ```bash
-cd assignments
-git clone https://github.com/stanford-cs336/<assignment-repo>.git
+git submodule update --init --recursive
 ```
 
-Do not copy assignment source into this study repo by hand. Clone the official repo so updates remain visible.
-
+Do assignment work inside the corresponding submodule directory, while keeping notes and retrospectives in this study repo.
