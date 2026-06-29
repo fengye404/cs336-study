@@ -2,6 +2,27 @@
 
 Goal: assemble embeddings, attention, MLP, residuals, and an LM head.
 
+## Where This Fits
+
+Lecture connection:
+
+- Transformer architecture, hyperparameters, normalization, attention, and MLPs.
+
+Official assignment connection:
+
+- Assignment 1: Basics, full model architecture.
+
+Before this lab:
+
+- Finish Labs 02-04.
+- Know tokenization, logits, attention, and causal masking at a high level.
+
+After this lab:
+
+- Read Assignment 1 carefully.
+- Start implementing Assignment 1 if you can explain this lab's forward pass.
+- Continue to Lab 06 in parallel with Assignment 1 training/debugging.
+
 Run:
 
 ```bash
@@ -21,4 +42,3 @@ Questions:
 - Why do residual connections preserve shape?
 - Why does the model need positional embeddings?
 - What changes between the Week 03 bigram model and this tiny GPT?
-

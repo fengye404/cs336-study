@@ -2,6 +2,26 @@
 
 Goal: understand how text becomes token ids.
 
+## Where This Fits
+
+Lecture connection:
+
+- CS336 overview and tokenization material.
+
+Official assignment connection:
+
+- Warmup for Assignment 1: Basics, tokenizer portion.
+
+Before this lab:
+
+- Finish Lab 01.
+- Skim the official Assignment 1 tokenizer section.
+
+After this lab:
+
+- Continue to Lab 03.
+- You can read Assignment 1 tests, but wait until Lab 05 or 06 before trying to finish it.
+
 Run:
 
 ```bash
@@ -23,4 +43,3 @@ Questions:
 - What is a merge rule?
 - Why does `"hello world"` not necessarily mean two tokens?
 - Why does tokenization matter for agent cost and context length?
-

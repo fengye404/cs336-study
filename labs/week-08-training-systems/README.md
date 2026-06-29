@@ -2,6 +2,26 @@
 
 Goal: map training-system techniques to the bottlenecks they address.
 
+## Where This Fits
+
+Lecture connection:
+
+- Kernels, Triton, parallelism, and distributed training.
+
+Official assignment connection:
+
+- Assignment 2: Systems is the main match.
+
+Before this lab:
+
+- Finish Lab 07.
+- Revisit Lab 04 attention shapes.
+
+After this lab:
+
+- Work on Assignment 2 if you are ready for systems-heavy code.
+- If systems feels too steep, first finish Assignment 1 and read the Assignment 2 handout without implementing.
+
 Run:
 
 ```bash
@@ -23,4 +43,3 @@ Questions:
 - Which technique increases throughput?
 - Which technique adds communication?
 - Which technique would help if attention activations are the bottleneck?
-

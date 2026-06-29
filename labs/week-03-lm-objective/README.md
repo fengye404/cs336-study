@@ -2,6 +2,26 @@
 
 Goal: understand next-token prediction.
 
+## Where This Fits
+
+Lecture connection:
+
+- Language modeling objective, embeddings, logits, and cross entropy.
+
+Official assignment connection:
+
+- Assignment 1: Basics, model/loss foundation.
+
+Before this lab:
+
+- Finish Lab 02.
+- Know what token ids are and why targets are shifted by one.
+
+After this lab:
+
+- Continue to Lab 04 before doing serious Assignment 1 model work.
+- In Assignment 1, identify where logits and cross entropy appear.
+
 Run:
 
 ```bash
@@ -21,4 +41,3 @@ Questions:
 - Why do targets equal inputs shifted by one position?
 - What is a logit?
 - Why does cross entropy expect class indices instead of one-hot vectors?
-

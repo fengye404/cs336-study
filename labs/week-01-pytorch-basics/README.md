@@ -2,6 +2,20 @@
 
 Goal: run and understand one complete training loop.
 
+## Where This Fits
+
+Official CS336 assumes Python, PyTorch, and systems comfort. This lab is a personal warmup before the official material starts moving quickly.
+
+Before this lab:
+
+- Skim the CS336 homepage and prerequisites.
+- Read the Week 1 section in `study-plan.md`.
+
+After this lab:
+
+- Continue to Lab 02.
+- Do not start official Assignment 1 yet unless the training loop feels readable.
+
 Run:
 
 ```bash
@@ -22,4 +36,3 @@ Questions to answer in `notes/week-01-setup.md`:
 - What does `loss.backward()` compute?
 - Why do we call `optimizer.zero_grad()` before backprop?
 - Which tensor shapes flow through the model?
-
