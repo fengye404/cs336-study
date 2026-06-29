@@ -2,6 +2,7 @@ from __future__ import annotations
 
 
 ROWS = [
+    # 每一行都对应一个训练系统技术：它解决什么问题，以及付出什么代价。
     (
         "Data parallelism",
         "One full model copy per worker",
@@ -42,6 +43,7 @@ ROWS = [
 
 
 def main() -> None:
+    # 这个 lab 不跑模型，只帮你把系统概念和 bottleneck 对齐。
     headers = ("Technique", "Core idea", "Helps with", "Cost")
     widths = [28, 36, 34, 34]
     print(" | ".join(header.ljust(width) for header, width in zip(headers, widths)))
@@ -59,4 +61,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

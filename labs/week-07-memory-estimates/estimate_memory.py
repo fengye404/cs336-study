@@ -4,6 +4,7 @@ from dataclasses import dataclass
 
 
 BYTES = {
+    # 不同精度的每个数值占用字节数。bf16/fp16 是 fp32 的一半。
     "fp32": 4,
     "bf16": 2,
     "fp16": 2,
@@ -21,8 +22,12 @@ class ModelConfig:
 
 
 def estimate_params(config: ModelConfig) -> int:
+    # 这是粗略估算，不追求和某个具体架构完全一致。
+    # 目的是建立“参数量来自哪里”的直觉。
     embedding = config.vocab * config.hidden
+    # 一个 Transformer 层里，attention 大致有 q/k/v/out 四个 hidden x hidden 矩阵。
     attention = config.layers * 4 * config.hidden * config.hidden
+    # MLP 常见扩展倍率是 4x：hidden -> 4hidden -> hidden，所以约 8 * hidden^2。
     mlp = config.layers * 8 * config.hidden * config.hidden
     norms = config.layers * 4 * config.hidden
     lm_head = config.vocab * config.hidden
@@ -35,11 +40,14 @@ def gb(n_bytes: float) -> float:
 
 def report(config: ModelConfig) -> None:
     param_count = estimate_params(config)
+    # 训练时不只存 weights，还要存 gradients 和 optimizer states。
     weight_bytes = param_count * BYTES[config.precision]
     grad_bytes = param_count * BYTES[config.precision]
+    # AdamW 通常为每个参数维护两个 fp32 状态：m 和 v，所以约 8 bytes/param。
     adam_bytes = param_count * 8
 
-    # Very rough activation estimate: hidden states around each block plus attention-like buffers.
+    # 非常粗略的 activation 估算：每层会保留若干中间 hidden states 和 attention 相关 buffer。
+    # 真实显存还受实现、checkpointing、kernel 等影响。
     activation_values = config.batch * config.seq_len * config.hidden * config.layers * 6
     activation_bytes = activation_values * BYTES[config.precision]
 
@@ -67,4 +75,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
