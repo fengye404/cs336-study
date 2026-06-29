@@ -1,44 +1,44 @@
-# Week 09: Inference, Sampling, And Evaluation
+# Week 09：Inference、Sampling 和 Evaluation
 
-Goal: connect logits to generated text and simple evaluation.
+目标：把 logits、文本生成和简单 evaluation 连起来。
 
-## Where This Fits
+## 这个 Lab 放在哪里
 
-Lecture connection:
+对应 lecture：
 
-- Inference, evaluation, and parts of the data section.
+- inference、evaluation，以及 data 部分的一小块。
 
-Official assignment connection:
+对应官方作业：
 
-- Assignment 2: inference/system benchmarking concepts.
-- Assignment 4: Data and evaluation, though this lab only covers a small slice.
+- Assignment 2：inference/system benchmarking 概念。
+- Assignment 4：Data 和 evaluation，但这个 lab 只覆盖很小一块。
 
-Before this lab:
+做这个 lab 前：
 
-- Finish Labs 03-06.
-- Understand logits and cross entropy.
+- 完成 Labs 03-06。
+- 理解 logits 和 cross entropy。
 
-After this lab:
+做完这个 lab 后：
 
-- For Assignment 2, connect sampling/inference to runtime constraints.
-- For Assignment 4, watch/read the official data lectures; this repo does not replace the data-cleaning assignment.
+- 做 Assignment 2 时，把 sampling/inference 和 runtime constraints 联系起来。
+- 做 Assignment 4 前，要看官方 data lectures；这个 repo 不能替代 data-cleaning 作业。
 
-Run:
+运行：
 
 ```bash
 source .venv/bin/activate
 python labs/week-09-inference-eval/sampling_and_eval.py
 ```
 
-What to look for:
+重点观察：
 
-- Greedy decoding always takes the highest-probability token.
-- Temperature changes confidence.
-- Top-k and top-p restrict the candidate set.
-- Perplexity is exponentiated average negative log-likelihood.
+- greedy decoding 总是选概率最高的 token。
+- temperature 会改变分布的“自信程度”。
+- top-k 和 top-p 会限制候选 token 集合。
+- perplexity 是平均 negative log-likelihood 的指数形式。
 
-Questions:
+问题：
 
-- Why can lower temperature make agent behavior more stable?
-- Why can top-p preserve more flexibility than top-k?
-- Why is one eval set never enough?
+- 为什么低 temperature 往往让 agent 行为更稳定？
+- 为什么 top-p 有时比 top-k 更灵活？
+- 为什么一个 eval set 永远不够？

@@ -1,44 +1,44 @@
-# Week 06: Training Loop And Debugging
+# Week 06：Training Loop 和 Debugging
 
-Goal: make a training loop reliable enough to learn from.
+目标：让训练循环足够可靠，能从实验结果里学东西。
 
-## Where This Fits
+## 这个 Lab 放在哪里
 
-Lecture connection:
+对应 lecture：
 
-- Training, optimization, resource accounting, and experiment discipline.
+- training、optimization、resource accounting、experiment discipline。
 
-Official assignment connection:
+对应官方作业：
 
-- Assignment 1: training a minimal language model.
-- Assignment 3: scaling laws later depend on clean experiment logs.
+- Assignment 1：训练一个最小 language model。
+- Assignment 3：scaling laws 需要干净的实验记录。
 
-Before this lab:
+做这个 lab 前：
 
-- Finish Lab 05.
-- Start reading Assignment 1 end to end.
+- 完成 Lab 05。
+- 开始完整阅读 Assignment 1。
 
-After this lab:
+做完这个 lab 后：
 
-- Work seriously on Assignment 1.
-- When Assignment 1 is mostly working, move to Lab 07 and prepare for Assignment 2/3.
+- 认真推进 Assignment 1。
+- Assignment 1 基本跑通后，进入 Lab 07，为 Assignment 2/3 做准备。
 
-Run:
+运行：
 
 ```bash
 source .venv/bin/activate
 python labs/week-06-training-loop/training_loop.py
 ```
 
-What to look for:
+重点观察：
 
-- Train and validation loss are measured separately.
-- Gradients are clipped before the optimizer step.
-- A checkpoint is saved and loaded.
-- Changing one config value at a time makes experiments easier to reason about.
+- train loss 和 validation loss 是分开测的。
+- optimizer step 前会做 gradient clipping。
+- checkpoint 会被保存并加载。
+- 每次只改一个 config，实验才容易解释。
 
-Questions:
+问题：
 
-- Why does validation loss matter?
-- What problem does gradient clipping prevent?
-- What needs to be saved to resume training faithfully?
+- validation loss 为什么重要？
+- gradient clipping 主要防什么问题？
+- 为了可靠恢复训练，需要保存哪些东西？

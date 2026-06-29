@@ -1,38 +1,38 @@
-# Week 01: PyTorch Basics
+# Week 01：PyTorch 基础
 
-Goal: run and understand one complete training loop.
+目标：跑通并理解一个完整的 PyTorch 训练循环。
 
-## Where This Fits
+## 这个 Lab 放在哪里
 
-Official CS336 assumes Python, PyTorch, and systems comfort. This lab is a personal warmup before the official material starts moving quickly.
+CS336 默认你对 Python、PyTorch 和系统基础比较舒服。这个 lab 是我们自己的热身，目的是在官方内容加速前，先把训练循环跑通。
 
-Before this lab:
+做这个 lab 前：
 
-- Skim the CS336 homepage and prerequisites.
-- Read the Week 1 section in `study-plan.md`.
+- 快速看一下 CS336 首页和 prerequisites。
+- 读一遍 `study-plan.md` 里的 Week 1。
 
-After this lab:
+做完这个 lab 后：
 
-- Continue to Lab 02.
-- Do not start official Assignment 1 yet unless the training loop feels readable.
+- 继续 Lab 02。
+- 如果训练循环还读不顺，先不要正式开始 Assignment 1。
 
-Run:
+运行：
 
 ```bash
 source .venv/bin/activate
 python labs/week-01-pytorch-basics/train_tiny_mlp.py
 ```
 
-What to look for:
+重点观察：
 
-- Tensor shapes printed near the beginning.
-- Training loss should go down.
-- Validation loss should be reasonable.
-- The model should learn the synthetic function better than random guessing.
+- 开头打印出来的 tensor shapes。
+- training loss 应该下降。
+- validation loss 应该在合理范围内。
+- 模型应该比随机猜测更能拟合这个合成函数。
 
-Questions to answer in `notes/week-01-setup.md`:
+在 `notes/week-01-setup.md` 里回答：
 
-- What is the difference between a tensor and a NumPy array?
-- What does `loss.backward()` compute?
-- Why do we call `optimizer.zero_grad()` before backprop?
-- Which tensor shapes flow through the model?
+- tensor 和 NumPy array 有什么区别？
+- `loss.backward()` 算出了什么？
+- 为什么反向传播前要调用 `optimizer.zero_grad()`？
+- 这个模型里流过了哪些 tensor shapes？

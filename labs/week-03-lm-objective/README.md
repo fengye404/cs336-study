@@ -1,43 +1,43 @@
-# Week 03: Embeddings, Logits, And LM Objective
+# Week 03：Embeddings、Logits 和 LM Objective
 
-Goal: understand next-token prediction.
+目标：理解 next-token prediction。
 
-## Where This Fits
+## 这个 Lab 放在哪里
 
-Lecture connection:
+对应 lecture：
 
-- Language modeling objective, embeddings, logits, and cross entropy.
+- language modeling objective、embeddings、logits、cross entropy。
 
-Official assignment connection:
+对应官方作业：
 
-- Assignment 1: Basics, model/loss foundation.
+- Assignment 1: Basics 里的 model/loss 基础。
 
-Before this lab:
+做这个 lab 前：
 
-- Finish Lab 02.
-- Know what token ids are and why targets are shifted by one.
+- 完成 Lab 02。
+- 知道 token ids 是什么，也知道为什么 targets 是 inputs 向后错一位。
 
-After this lab:
+做完这个 lab 后：
 
-- Continue to Lab 04 before doing serious Assignment 1 model work.
-- In Assignment 1, identify where logits and cross entropy appear.
+- 继续 Lab 04，然后再认真写 Assignment 1 的 model 部分。
+- 在 Assignment 1 里找到 logits 和 cross entropy 出现的位置。
 
-Run:
+运行：
 
 ```bash
 source .venv/bin/activate
 python labs/week-03-lm-objective/train_bigram_lm.py
 ```
 
-What to look for:
+重点观察：
 
-- Input is token ids with shape `(batch, time)`.
-- Embedding maps ids to vectors.
-- The model produces logits with shape `(batch, time, vocab_size)`.
-- Cross entropy compares logits against the next token ids.
+- input 是 shape 为 `(batch, time)` 的 token ids。
+- embedding 把 ids 映射成向量。
+- 模型输出 logits，shape 是 `(batch, time, vocab_size)`。
+- cross entropy 拿 logits 和下一个 token ids 做比较。
 
-Questions:
+问题：
 
-- Why do targets equal inputs shifted by one position?
-- What is a logit?
-- Why does cross entropy expect class indices instead of one-hot vectors?
+- 为什么 targets 等于 inputs 向后错一位？
+- logit 是什么？
+- 为什么 cross entropy 需要 class indices，而不是 one-hot vectors？

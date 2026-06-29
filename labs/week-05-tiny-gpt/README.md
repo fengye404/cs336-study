@@ -1,44 +1,44 @@
-# Week 05: Tiny GPT
+# Week 05：Tiny GPT
 
-Goal: assemble embeddings, attention, MLP, residuals, and an LM head.
+目标：把 embeddings、attention、MLP、residuals 和 LM head 组装起来。
 
-## Where This Fits
+## 这个 Lab 放在哪里
 
-Lecture connection:
+对应 lecture：
 
-- Transformer architecture, hyperparameters, normalization, attention, and MLPs.
+- Transformer architecture、hyperparameters、normalization、attention、MLP。
 
-Official assignment connection:
+对应官方作业：
 
-- Assignment 1: Basics, full model architecture.
+- Assignment 1: Basics 里的完整模型结构。
 
-Before this lab:
+做这个 lab 前：
 
-- Finish Labs 02-04.
-- Know tokenization, logits, attention, and causal masking at a high level.
+- 完成 Labs 02-04。
+- 大致理解 tokenization、logits、attention 和 causal masking。
 
-After this lab:
+做完这个 lab 后：
 
-- Read Assignment 1 carefully.
-- Start implementing Assignment 1 if you can explain this lab's forward pass.
-- Continue to Lab 06 in parallel with Assignment 1 training/debugging.
+- 认真读 Assignment 1。
+- 如果你能解释这个 lab 的 forward pass，就可以开始实现 Assignment 1。
+- Lab 06 可以和 Assignment 1 的训练/debugging 并行推进。
 
-Run:
+运行：
 
 ```bash
 source .venv/bin/activate
 python labs/week-05-tiny-gpt/tiny_gpt.py
 ```
 
-What to look for:
+重点观察：
 
-- Token and positional embeddings are added.
-- Each Transformer block keeps shape `(batch, time, channels)`.
-- The LM head maps channels to vocabulary logits.
-- Generated samples improve a little after training.
+- token embeddings 和 positional embeddings 会相加。
+- 每个 Transformer block 都保持 `(batch, time, channels)`。
+- LM head 把 channels 映射到 vocabulary logits。
+- 训练后生成的 sample 应该会稍微变得像样一点。
 
-Questions:
+问题：
 
-- Why do residual connections preserve shape?
-- Why does the model need positional embeddings?
-- What changes between the Week 03 bigram model and this tiny GPT?
+- 为什么 residual connections 要保持 shape？
+- 模型为什么需要 positional embeddings？
+- Week 03 的 bigram model 和这个 tiny GPT 有什么关键区别？

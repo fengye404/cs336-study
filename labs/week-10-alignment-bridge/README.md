@@ -1,42 +1,42 @@
-# Week 10: Alignment Bridge
+# Week 10：Alignment 桥接
 
-Goal: connect LLM training to SFT, preferences, RLHF, and DPO.
+目标：把 LLM training 和 SFT、preferences、RLHF、DPO 连起来。
 
-## Where This Fits
+## 这个 Lab 放在哪里
 
-Lecture connection:
+对应 lecture：
 
-- Mid/post-training, SFT, RLHF/RLVR, and alignment.
+- mid/post-training、SFT、RLHF/RLVR、alignment。
 
-Official assignment connection:
+对应官方作业：
 
-- Assignment 5: Alignment and reasoning RL.
+- Assignment 5：Alignment 和 reasoning RL。
 
-Before this lab:
+做这个 lab 前：
 
-- Finish Lab 09.
-- Know what log-probabilities are from the language-modeling objective.
+- 完成 Lab 09。
+- 从 language-modeling objective 里理解 log-probabilities 是什么。
 
-After this lab:
+做完这个 lab 后：
 
-- Start Assignment 5 only after you can explain SFT data versus preference data.
-- If PPO/RL feels vague, pause and study RL basics separately before going deep on RLHF.
+- 能解释 SFT data 和 preference data 的区别后，再开始 Assignment 5。
+- 如果 PPO/RL 还很模糊，先单独补 RL basics，再深入 RLHF。
 
-Run:
+运行：
 
 ```bash
 source .venv/bin/activate
 python labs/week-10-alignment-bridge/preference_loss.py
 ```
 
-What to look for:
+重点观察：
 
-- Preference data compares a chosen answer with a rejected answer.
-- DPO uses policy log-probabilities and reference log-probabilities.
-- The loss rewards the policy for preferring chosen responses more than the reference does.
+- preference data 比较 chosen answer 和 rejected answer。
+- DPO 会用 policy log-probabilities 和 reference log-probabilities。
+- 这个 loss 会奖励 policy 相比 reference 更偏好 chosen responses。
 
-Questions:
+问题：
 
-- What data would an agent trace provide for SFT?
-- What data would require human or model preference labels?
-- Why is DPO not the same thing as general RL?
+- agent trace 可以提供哪些 SFT 数据？
+- 哪些数据需要人或模型给 preference labels？
+- 为什么 DPO 不等于一般意义上的 RL？

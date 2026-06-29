@@ -1,45 +1,45 @@
-# Week 08: Efficient Training And Distributed Concepts
+# Week 08：高效训练和分布式概念
 
-Goal: map training-system techniques to the bottlenecks they address.
+目标：把训练系统技术和它们解决的 bottleneck 对上号。
 
-## Where This Fits
+## 这个 Lab 放在哪里
 
-Lecture connection:
+对应 lecture：
 
-- Kernels, Triton, parallelism, and distributed training.
+- kernels、Triton、parallelism、distributed training。
 
-Official assignment connection:
+对应官方作业：
 
-- Assignment 2: Systems is the main match.
+- Assignment 2: Systems 是最直接对应。
 
-Before this lab:
+做这个 lab 前：
 
-- Finish Lab 07.
-- Revisit Lab 04 attention shapes.
+- 完成 Lab 07。
+- 回头复习 Lab 04 的 attention shapes。
 
-After this lab:
+做完这个 lab 后：
 
-- Work on Assignment 2 if you are ready for systems-heavy code.
-- If systems feels too steep, first finish Assignment 1 and read the Assignment 2 handout without implementing.
+- 如果你准备好写 systems-heavy code，可以开始 Assignment 2。
+- 如果 systems 感觉陡，先完成 Assignment 1，再只读 Assignment 2 handout，不急着实现。
 
-Run:
+运行：
 
 ```bash
 source .venv/bin/activate
 python labs/week-08-training-systems/bottleneck_map.py
 ```
 
-What to look for:
+重点观察：
 
-- Data parallelism solves throughput by copying the model across workers.
-- Tensor parallelism splits large matrix work.
-- Pipeline parallelism splits layers.
-- FSDP/ZeRO shard parameters, gradients, and optimizer states.
-- FlashAttention reduces attention memory traffic.
+- data parallelism 通过在多个 worker 上复制模型来提升 throughput。
+- tensor parallelism 拆分大型矩阵计算。
+- pipeline parallelism 拆分模型层。
+- FSDP/ZeRO 会 shard parameters、gradients 和 optimizer states。
+- FlashAttention 减少 attention 的 memory traffic。
 
-Questions:
+问题：
 
-- Which technique reduces memory?
-- Which technique increases throughput?
-- Which technique adds communication?
-- Which technique would help if attention activations are the bottleneck?
+- 哪些技术主要降低 memory？
+- 哪些技术主要提升 throughput？
+- 哪些技术会增加 communication？
+- 如果 attention activations 是 bottleneck，应该看哪类技术？

@@ -1,28 +1,28 @@
-# Week 02: Tokenization And BPE
+# Week 02：Tokenization 和 BPE
 
-Goal: understand how text becomes token ids.
+目标：理解文本如何变成 token ids。
 
-## Where This Fits
+## 这个 Lab 放在哪里
 
-Lecture connection:
+对应 lecture：
 
-- CS336 overview and tokenization material.
+- CS336 overview 和 tokenization 相关内容。
 
-Official assignment connection:
+对应官方作业：
 
-- Warmup for Assignment 1: Basics, tokenizer portion.
+- Assignment 1: Basics 里的 tokenizer 部分热身。
 
-Before this lab:
+做这个 lab 前：
 
-- Finish Lab 01.
-- Skim the official Assignment 1 tokenizer section.
+- 完成 Lab 01。
+- 快速扫一遍 Assignment 1 的 tokenizer 部分。
 
-After this lab:
+做完这个 lab 后：
 
-- Continue to Lab 03.
-- You can read Assignment 1 tests, but wait until Lab 05 or 06 before trying to finish it.
+- 继续 Lab 03。
+- 可以先读 Assignment 1 的 tokenizer tests，但建议等到 Lab 05 或 Lab 06 后再认真完成整个 Assignment 1。
 
-Run:
+运行：
 
 ```bash
 source .venv/bin/activate
@@ -30,16 +30,16 @@ python labs/week-02-tokenizer/toy_bpe.py
 python labs/week-02-tokenizer/token_count.py
 ```
 
-What to look for:
+重点观察：
 
-- BPE starts from small pieces and repeatedly merges frequent adjacent pairs.
-- Training a tokenizer creates merge rules.
-- Encoding text applies existing merge rules.
-- Token counts change when wording, punctuation, whitespace, or language changes.
+- BPE 从小片段开始，不断合并高频相邻 pair。
+- 训练 tokenizer 的结果是得到 merge rules。
+- encoding 文本时，是在应用已经学到的 merge rules。
+- 文案、标点、空格、语言变化都会影响 token 数。
 
-Questions:
+问题：
 
-- What is a vocabulary?
-- What is a merge rule?
-- Why does `"hello world"` not necessarily mean two tokens?
-- Why does tokenization matter for agent cost and context length?
+- vocabulary 是什么？
+- merge rule 是什么？
+- 为什么 `"hello world"` 不一定就是两个 token？
+- tokenization 为什么会影响 agent 的成本和上下文长度？

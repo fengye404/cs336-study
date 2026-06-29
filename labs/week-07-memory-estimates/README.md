@@ -1,45 +1,45 @@
-# Week 07: Scaling Basics And GPU Memory
+# Week 07：Scaling 基础和 GPU 显存
 
-Goal: estimate memory before launching a run.
+目标：在启动训练前，先粗略估算显存。
 
-## Where This Fits
+## 这个 Lab 放在哪里
 
-Lecture connection:
+对应 lecture：
 
-- Resource accounting, GPUs/TPUs, and systems lectures.
+- resource accounting、GPUs/TPUs、systems lectures。
 
-Official assignment connection:
+对应官方作业：
 
-- Assignment 2: Systems.
-- Assignment 3: Scaling.
+- Assignment 2: Systems。
+- Assignment 3: Scaling。
 
-Before this lab:
+做这个 lab 前：
 
-- Finish Lab 06.
-- Have at least a partial Assignment 1 model/training loop.
+- 完成 Lab 06。
+- 至少有一个部分跑通的 Assignment 1 model/training loop。
 
-After this lab:
+做完这个 lab 后：
 
-- Start reading Assignment 2.
-- For Assignment 3, keep these estimates nearby when thinking about model size, batch size, and training budget.
+- 开始读 Assignment 2。
+- 做 Assignment 3 时，把这些估算放在手边，用来思考 model size、batch size 和 training budget。
 
-Run:
+运行：
 
 ```bash
 source .venv/bin/activate
 python labs/week-07-memory-estimates/estimate_memory.py
 ```
 
-What to look for:
+重点观察：
 
-- Parameters are only one part of memory.
-- AdamW optimizer states often cost more than parameters.
-- Sequence length and batch size drive activation memory.
-- Estimates are approximate but useful for sanity checks.
+- parameters 只是显存的一部分。
+- AdamW optimizer states 往往比 parameters 更占空间。
+- sequence length 和 batch size 会推高 activation memory。
+- 估算不需要完美，但能帮你提前做 sanity check。
 
-Questions:
+问题：
 
-- What memory is used by parameters?
-- What memory is used by gradients?
-- Why are optimizer states expensive?
-- Why does activation memory grow with sequence length?
+- parameters 占用什么显存？
+- gradients 占用什么显存？
+- optimizer states 为什么贵？
+- activation memory 为什么会随着 sequence length 增长？
